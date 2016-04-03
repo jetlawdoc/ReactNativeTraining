@@ -23,7 +23,7 @@ import {Actions} from 'react-native-router-flux'
 
 const styles = require('../style/movieListStyle.js');
 
-var REQUEST_URL = 'https://raw.githubusercontent.com/facebook/react-native/master/docs/MoviesExample.json';
+var REQUEST_URL = 'https://raw.githubusercontent.com/jetlawdoc/ReactNativeTraining/master/MoviesExample.json';
 
 class MovieList extends React.Component {
   constructor(props) {
