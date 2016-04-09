@@ -7,19 +7,15 @@ import React, {
   Text,
   InteractionManager,
   View,
+  ToastAndroid,
 } from 'react-native';
 import {Actions} from 'react-native-router-flux'
 import StarRating from 'react-native-star-rating';
 import Icon from 'react-native-vector-icons/Ionicons';
+import Button from "react-native-button";
 
 const styles = require('../style/movieDetailsStyle.js');
 
-var _navigator;
-BackAndroid.addEventListener('hardwareBackPress', () => {
-    console.log("Back!");
-    Actions.pop;
-    return true;
-});
 
 class MovieScreen extends React.Component {
   constructor(props, context) {
@@ -36,6 +32,20 @@ class MovieScreen extends React.Component {
     });
   }
 
+  componentWillMount() {
+    BackAndroid.addEventListener('hardwareBackPress', () => {
+        try {
+            Actions.pop();
+            return true;
+        }
+        catch (err) {
+            ToastAndroid.show("Cannot pop. Exiting the app...", ToastAndroid.SHORT);
+            return true;
+        }
+    });
+
+  };
+
   onStarRatingPress(rating) {
     this.setState({
       starCount: rating
@@ -43,11 +53,13 @@ class MovieScreen extends React.Component {
   }
 
   render() {
+
     if (this.state.loaded) {
       console.log("Loading Movie Screen...");
       return this.renderLoadingView();
     }
     console.log("Rendering Movie Screen...");
+
     return (
       <ScrollView contentContainerStyle={styles.contentContainer}>
         <View style={styles.mainSection}>
