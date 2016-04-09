@@ -16,22 +16,23 @@ const styles = require('../style/movieDetailsStyle.js');
 
 var _navigator;
 BackAndroid.addEventListener('hardwareBackPress', () => {
+    console.log("Back!");
     Actions.pop;
     return true;
 });
 
-export default class MovieScreen extends React.Component {
+class MovieScreen extends React.Component {
   constructor(props, context) {
   super(props, context);
     this.state = {
       starCount: 0,
-      renderPlaceholderOnly: true
+      loaded: true
     };
   }
 
   componentDidMount() {
     InteractionManager.runAfterInteractions(() => {
-      this.setState({renderPlaceholderOnly: false});
+      this.setState({loaded: false});
     });
   }
 
@@ -42,10 +43,11 @@ export default class MovieScreen extends React.Component {
   }
 
   render() {
-    if (this.state.renderPlaceholderOnly) {
-      return this._renderPlaceholderView();
+    if (this.state.loaded) {
+      console.log("Loading Movie Screen...");
+      return this.renderLoadingView();
     }
-
+    console.log("Rendering Movie Screen...");
     return (
       <ScrollView contentContainerStyle={styles.contentContainer}>
         <View style={styles.mainSection}>
@@ -74,10 +76,12 @@ export default class MovieScreen extends React.Component {
     );
   }
 
-  _renderPlaceholderView() {
+  renderLoadingView() {
     return (
-      <View>
-        <Text>Loading...</Text>
+      <View style={styles.loading}>
+        <Text>
+          Loading movies...
+        </Text>
       </View>
     );
   }
@@ -133,3 +137,4 @@ var Rating = React.createClass({
   },
 });
 
+module.exports = MovieScreen;

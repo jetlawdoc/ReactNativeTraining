@@ -1,6 +1,6 @@
 module.exports = require('react-native').StyleSheet.create(
 {
-  container: {
+  loading: {
     flex: 1,
     flexDirection: 'row',
     justifyContent: 'center',
@@ -64,5 +64,6 @@ module.exports = require('react-native').StyleSheet.create(
   separator: {
     height: 1,
     backgroundColor: '#CCCCCC',
+    marginVertical: 10,
   },
 });

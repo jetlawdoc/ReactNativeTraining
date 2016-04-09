@@ -1,5 +1,12 @@
 module.exports = require('react-native').StyleSheet.create(
 {
+  loading: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#F5FCFF',
+  },
   contentContainer: {
     padding: 10,
   },
