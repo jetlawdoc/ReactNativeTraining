@@ -20,7 +20,6 @@ import React, {
 import StarRating from 'react-native-star-rating';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {Actions} from 'react-native-router-flux';
-import Button from "react-native-button";
 
 const styles = require('../style/movieListStyle.js');
 

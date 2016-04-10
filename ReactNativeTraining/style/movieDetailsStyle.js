@@ -15,7 +15,6 @@ module.exports = require('react-native').StyleSheet.create(
     flex: 1,
   },
   movieTitle: {
-    flex: 1,
     fontSize: 16,
     fontWeight: '500',
   },
