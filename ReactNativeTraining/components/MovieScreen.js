@@ -3,7 +3,6 @@ import React, {
   Image,
   ScrollView,
   StyleSheet,
-  BackAndroid,
   Text,
   InteractionManager,
   View,
@@ -29,19 +28,6 @@ class MovieScreen extends React.Component {
     InteractionManager.runAfterInteractions(() => {
       this.setState({loaded: false});
     });
-  }
-
-  componentWillMount() {
-    // BackAndroid.addEventListener('hardwareBackPress', () => {
-    //     try {
-    //         Actions.pop();
-    //         return true;
-    //     }
-    //     catch (err) {
-    //         ToastAndroid.show("Cannot pop. Exiting the app...", ToastAndroid.SHORT);
-    //         //return true;
-    //     }
-    // });
   }
 
   onStarRatingPress(rating) {
